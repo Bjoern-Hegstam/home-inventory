@@ -1,10 +1,5 @@
 namespace HomeInventory.Domain.Model;
 
-public record StockItemId(Guid Id)
-{
-    public static StockItemId New() => new(Guid.NewGuid());
-}
-
 public class StockItem
 {
     public required StockItemId StockItemId { get; init; }

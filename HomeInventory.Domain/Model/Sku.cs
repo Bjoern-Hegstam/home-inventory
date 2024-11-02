@@ -1,3 +1,3 @@
 namespace HomeInventory.Domain.Model;
 
-public record Sku(string Value);
+public record struct Sku(string Value);
