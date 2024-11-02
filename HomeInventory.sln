@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Web", "HomeIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Domain", "HomeInventory.Domain\HomeInventory.Domain.csproj", "{E0E80634-957B-47FB-90BA-42ED49AAB652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Integration.Database", "HomeInventory.Integration.Database\HomeInventory.Integration.Database.csproj", "{DCBA34D0-218C-4657-A030-5E1EC7A3797A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCBA34D0-218C-4657-A030-5E1EC7A3797A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCBA34D0-218C-4657-A030-5E1EC7A3797A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCBA34D0-218C-4657-A030-5E1EC7A3797A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCBA34D0-218C-4657-A030-5E1EC7A3797A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
