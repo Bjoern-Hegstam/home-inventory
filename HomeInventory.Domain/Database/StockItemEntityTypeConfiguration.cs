@@ -8,15 +8,20 @@ public class StockItemEntityTypeConfiguration : IEntityTypeConfiguration<StockIt
 {
     public void Configure(EntityTypeBuilder<StockItem> builder)
     {
-        builder .ToTable("StockItem");
+        builder.ToTable("StockItem");
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-        builder .Property(x => x.StockItemId)
+        builder.Property(x => x.StockItemId)
+            .IsRequired()
             .HasConversion(new IdentifierConverter<StockItemId>());
-        
-        builder .Property(x => x.Sku)
+
+        builder.Property(x => x.Sku)
+            .IsRequired()
             .HasConversion<string>(x => x.Value, x => new Sku(x));
+
+        builder.HasIndex(x => x.StockItemId)
+            .IsUnique();
     }
 }
