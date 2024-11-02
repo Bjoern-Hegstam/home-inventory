@@ -10,7 +10,7 @@ public class StockItemContextFactory : IDesignTimeDbContextFactory<StockItemCont
         var optionsBuilder = new DbContextOptionsBuilder<StockItemContext>();
         var connectionString = args.Length > 0
             ? args[0]
-            : throw new InvalidOperationException("Please provide a connection string as a CLI argument.");
+            : throw new InvalidOperationException("Unable to determine db connection string");
 
         optionsBuilder.UseNpgsql(connectionString);
         return new StockItemContext(optionsBuilder.Options);

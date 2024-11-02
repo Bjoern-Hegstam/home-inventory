@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HomeInventory.Service;
 
-public class StockItemService(StockItemContext stockItemContext)
+public class StockItemService(StockItemContext stockItemContext) : IStockItemService
 {
     public async Task<StockItem> AddStockItem(AddStockItemRequest request)
     {
@@ -19,6 +19,11 @@ public class StockItemService(StockItemContext stockItemContext)
         await stockItemContext.StockItems.AddAsync(stockItem);
 
         return stockItem;
+    }
+    
+    public async Task<List<StockItem>> GetStockItems()
+    {
+        return await stockItemContext.StockItems.ToListAsync();
     }
     
     public async Task<StockItem?> FindBySku(Sku sku)

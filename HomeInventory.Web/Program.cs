@@ -1,10 +1,17 @@
+using HomeInventory.Database;
+using HomeInventory.Service;
 using HomeInventory.Web.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddDbContext<StockItemContext>(options => options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")));
+
+builder.Services.AddScoped<IStockItemService, StockItemService>();
 
 var app = builder.Build();
 
