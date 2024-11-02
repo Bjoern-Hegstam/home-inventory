@@ -1,10 +1,5 @@
 ﻿@page "/counter"
-@using HomeInventory.Model
-@using HomeInventory.Service
-@using HomeInventory.Service.Request
 @rendermode InteractiveServer
-
-@inject IStockItemService StockItemService
 
 <PageTitle>Counter</PageTitle>
 
@@ -17,18 +12,9 @@
 @code {
     private int _currentCount;
 
-    private async void IncrementCount()
+    private void IncrementCount()
     {
         _currentCount++;
-
-        var addStockItemRequest = new AddStockItemRequest(
-            Name: "test-item" + _currentCount,
-            Sku: new Sku("test" + _currentCount),
-            InventoryCount: 1
-        );
-        await StockItemService.AddStockItem(addStockItemRequest);
-
-        List<StockItem> stockItems = await StockItemService.GetStockItems();
     }
 
 }
