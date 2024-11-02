@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Web", "HomeInventory.Web\HomeInventory.Web.csproj", "{A4D15141-06E6-4912-AC91-C755F39EB843}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Domain", "HomeInventory.Domain\HomeInventory.Domain.csproj", "{E0E80634-957B-47FB-90BA-42ED49AAB652}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Core", "HomeInventory.Core\HomeInventory.Core.csproj", "{E0E80634-957B-47FB-90BA-42ED49AAB652}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
