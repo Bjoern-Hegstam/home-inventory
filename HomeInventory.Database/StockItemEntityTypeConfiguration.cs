@@ -1,3 +1,4 @@
+using HomeInventory.Database.Common;
 using HomeInventory.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

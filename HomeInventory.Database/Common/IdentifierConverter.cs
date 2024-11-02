@@ -1,8 +1,7 @@
-using HomeInventory.Model;
 using HomeInventory.Model.Common;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace HomeInventory.Database;
+namespace HomeInventory.Database.Common;
 
 public class IdentifierConverter<TModel>() : ValueConverter<TModel, string>(
     v => v.Id.ToString(),
