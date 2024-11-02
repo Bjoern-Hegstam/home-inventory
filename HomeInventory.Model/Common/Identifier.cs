@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-
-namespace HomeInventory.Domain.Model;
+namespace HomeInventory.Model.Common;
 
 public abstract record Identifier<T>(Guid Id) where T : Identifier<T>
 {
@@ -13,8 +11,3 @@ public abstract record Identifier<T>(Guid Id) where T : Identifier<T>
         return (T)Activator.CreateInstance(typeof(T), id)!;
     }
 }
-
-public class IdentifierConverter<TModel>() : ValueConverter<TModel, string>(
-    v => v.Id.ToString(),
-    v => Identifier<TModel>.Parse(v)
-) where TModel : Identifier<TModel>;

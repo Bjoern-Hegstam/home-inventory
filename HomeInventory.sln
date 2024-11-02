@@ -2,7 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Web", "HomeInventory.Web\HomeInventory.Web.csproj", "{A4D15141-06E6-4912-AC91-C755F39EB843}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Core", "HomeInventory.Core\HomeInventory.Core.csproj", "{E0E80634-957B-47FB-90BA-42ED49AAB652}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Model", "HomeInventory.Model\HomeInventory.Model.csproj", "{E0E80634-957B-47FB-90BA-42ED49AAB652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Service", "HomeInventory.Service\HomeInventory.Service.csproj", "{7A4AED93-3038-4CAA-B7FE-6278F094BD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Database", "HomeInventory.Database\HomeInventory.Database.csproj", "{E360237A-42D2-40D4-816B-6E2BAF175076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0E80634-957B-47FB-90BA-42ED49AAB652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4AED93-3038-4CAA-B7FE-6278F094BD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4AED93-3038-4CAA-B7FE-6278F094BD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4AED93-3038-4CAA-B7FE-6278F094BD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4AED93-3038-4CAA-B7FE-6278F094BD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E360237A-42D2-40D4-816B-6E2BAF175076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E360237A-42D2-40D4-816B-6E2BAF175076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E360237A-42D2-40D4-816B-6E2BAF175076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E360237A-42D2-40D4-816B-6E2BAF175076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

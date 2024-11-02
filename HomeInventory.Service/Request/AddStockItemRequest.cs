@@ -1,6 +1,6 @@
-using HomeInventory.Domain.Model;
+using HomeInventory.Model;
 
-namespace HomeInventory.Domain.Request;
+namespace HomeInventory.Service.Request;
 
 public record AddStockItemRequest(
     string Name,

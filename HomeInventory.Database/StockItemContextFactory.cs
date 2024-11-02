@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace HomeInventory.Domain.Database;
+namespace HomeInventory.Database;
 
 public class StockItemContextFactory : IDesignTimeDbContextFactory<StockItemContext>
 {

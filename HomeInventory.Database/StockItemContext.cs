@@ -1,8 +1,8 @@
 using System.Reflection;
-using HomeInventory.Domain.Model;
+using HomeInventory.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace HomeInventory.Domain.Database;
+namespace HomeInventory.Database;
 
 public class StockItemContext(DbContextOptions options) : DbContext(options)
 {

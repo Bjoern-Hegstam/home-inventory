@@ -1,4 +1,4 @@
-namespace HomeInventory.Domain.Model;
+namespace HomeInventory.Model;
 
 public class StockItem
 {

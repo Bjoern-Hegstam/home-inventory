@@ -1,9 +1,9 @@
-using HomeInventory.Domain.Database;
-using HomeInventory.Domain.Model;
-using HomeInventory.Domain.Request;
+using HomeInventory.Database;
+using HomeInventory.Model;
+using HomeInventory.Service.Request;
 using Microsoft.EntityFrameworkCore;
 
-namespace HomeInventory.Domain.Service;
+namespace HomeInventory.Service;
 
 public class StockItemService(StockItemContext stockItemContext)
 {

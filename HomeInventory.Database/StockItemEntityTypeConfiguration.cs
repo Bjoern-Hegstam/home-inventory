@@ -1,8 +1,8 @@
-using HomeInventory.Domain.Model;
+using HomeInventory.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HomeInventory.Domain.Database;
+namespace HomeInventory.Database;
 
 public class StockItemEntityTypeConfiguration : IEntityTypeConfiguration<StockItem>
 {
