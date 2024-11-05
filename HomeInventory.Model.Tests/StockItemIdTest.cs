@@ -31,30 +31,32 @@ public class StockItemIdTest
     public void JsonSerializeDeserialize_IdSerializedAsString()
     {
         // arrange
-        var testEvent = new TestEvent { StockItemId = new StockItemId() };
+        var stockItemId = new StockItemId();
+        var eventJson = @$"{{""StockItemId"":""{stockItemId.Id}""}}";
+        
         var jsonSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
-        string eventJson = JsonSerializer.Serialize(testEvent, jsonSerializerOptions);
         
         // act
-        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonSerializerOptions);
+        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonSerializerOptions)!;
 
         // assert
-        deserializedEvent.StockItemId.Should().Be(testEvent.StockItemId);
+        deserializedEvent.StockItemId.Should().Be(stockItemId);
     }
     
     [Fact]
     public void JsonSerializeDeserialize_IdSerializedAsObject()
     {
         // arrange
-        var testEvent = new TestEvent { StockItemId = new StockItemId() };
-        string eventJson = JsonSerializer.Serialize(testEvent);
-        var jsonDeSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
+        var stockItemId = new StockItemId();
+        var eventJson = @$"{{""StockItemId"":{{""Id"":""{stockItemId.Id}""}}}}";
+        
+        var jsonSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
         
         // act
-        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonDeSerializerOptions);
+        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonSerializerOptions)!;
 
         // assert
-        deserializedEvent.StockItemId.Should().Be(testEvent.StockItemId);
+        deserializedEvent.StockItemId.Should().Be(stockItemId);
     }
 
 }
@@ -68,12 +70,11 @@ public class IdentifierJsonConverter : JsonConverter<object>
 {
     public override bool CanConvert(Type typeToConvert)
     {
-        // Check if the type is a subclass of Identifier<>
-        if (!typeToConvert.BaseType?.IsGenericType ?? true)
+        if (typeToConvert.BaseType is not { IsGenericType: true })
         {
             return false;
         }
-        
+
         return typeToConvert.BaseType.GetGenericTypeDefinition() == typeof(Identifier<>);
     }
 
@@ -112,7 +113,7 @@ public class IdentifierJsonConverter : JsonConverter<object>
     private static object ParseIdentifier(string idString, Type typeToConvert)
     {
         // Use reflection to call the Parse method on Identifier<T>
-        MethodInfo parseMethod = typeToConvert.GetMethod("Parse", BindingFlags.Public | BindingFlags.Static);
-        return parseMethod.Invoke(null, new object[] { idString });
+        MethodInfo parseMethod = typeToConvert.BaseType!.GetMethod("Parse", BindingFlags.Public | BindingFlags.Static)!;
+        return parseMethod.Invoke(null, [idString])!;
     }
 }
