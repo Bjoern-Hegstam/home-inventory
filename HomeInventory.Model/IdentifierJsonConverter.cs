@@ -26,12 +26,6 @@ public class IdentifierJsonConverterFactory : JsonConverterFactory
 
 public class IdentifierJsonConverter<T> : JsonConverter<T> where T : Identifier<T>
 {
-    public override bool CanConvert(Type typeToConvert)
-    {
-        return typeToConvert.BaseType is { IsGenericType: true } &&
-               typeToConvert.BaseType.GetGenericTypeDefinition() == typeof(Identifier<>);
-    }
-
     public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         // Support for reading id as serialized by this converter
