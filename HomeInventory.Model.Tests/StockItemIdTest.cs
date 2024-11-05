@@ -9,16 +9,16 @@ namespace HomInventory.Model.Tests;
 [TestSubject(typeof(StockItemId))]
 public class StockItemIdTest
 {
+    private readonly JsonSerializerOptions _jsonSerializerOptions = new() { Converters = { new IdentifierJsonConverterFactory() } };
+
     [Fact]
     public void JsonSerialize()
     {
         // arrange
         var testEvent = new TestEvent { StockItemId = new StockItemId() };
 
-        var jsonSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
-
         // act
-        string eventJson = JsonSerializer.Serialize(testEvent, jsonSerializerOptions);
+        string eventJson = JsonSerializer.Serialize(testEvent, _jsonSerializerOptions);
 
         // assert
         eventJson.Should().Be($@"{{""StockItemId"":""{testEvent.StockItemId.Id.ToString()}""}}");
@@ -31,10 +31,8 @@ public class StockItemIdTest
         var stockItemId = new StockItemId();
         var eventJson = @$"{{""StockItemId"":""{stockItemId.Id}""}}";
 
-        var jsonSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
-
         // act
-        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonSerializerOptions)!;
+        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, _jsonSerializerOptions)!;
 
         // assert
         deserializedEvent.StockItemId.Should().Be(stockItemId);
@@ -47,10 +45,8 @@ public class StockItemIdTest
         var stockItemId = new StockItemId();
         var eventJson = @$"{{""StockItemId"":{{""Id"":""{stockItemId.Id}""}}}}";
 
-        var jsonSerializerOptions = new JsonSerializerOptions { Converters = { new IdentifierJsonConverter() } };
-
         // act
-        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, jsonSerializerOptions)!;
+        var deserializedEvent = JsonSerializer.Deserialize<TestEvent>(eventJson, _jsonSerializerOptions)!;
 
         // assert
         deserializedEvent.StockItemId.Should().Be(stockItemId);
