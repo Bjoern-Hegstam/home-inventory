@@ -26,6 +26,11 @@ public class IdentifierJsonConverterFactory : JsonConverterFactory
 
 public class IdentifierJsonConverter<T> : JsonConverter<T> where T : Identifier<T>
 {
+    public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+    {
+        writer.WriteStringValue(value.Id.ToString());
+    }
+
     public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         // Support for reading id as serialized by this converter
@@ -49,10 +54,5 @@ public class IdentifierJsonConverter<T> : JsonConverter<T> where T : Identifier<
         }
 
         throw new JsonException($"Invalid JSON format for {typeToConvert.Name}.");
-    }
-
-    public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
-    {
-        writer.WriteStringValue(value.Id.ToString());
     }
 }
