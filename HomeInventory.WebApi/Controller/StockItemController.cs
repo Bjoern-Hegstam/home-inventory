@@ -19,7 +19,7 @@ public class StockItemController(IStockItemService stockItemService) : Controlle
         {
             Name = apiRequest.Name,
             Sku = new Sku(apiRequest.Sku.Value),
-            InventoryCount = 1
+            InventoryCount = apiRequest.InventoryCount
         };
 
         StockItem stockItem = await stockItemService.AddStockItem(request);

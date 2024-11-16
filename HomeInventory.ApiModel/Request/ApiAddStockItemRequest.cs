@@ -6,4 +6,5 @@ public class ApiAddStockItemRequest
 {
     public required string Name { get; init; }
     public required ApiSku Sku { get; init; }
+    public required int InventoryCount { get; init; }
 }
