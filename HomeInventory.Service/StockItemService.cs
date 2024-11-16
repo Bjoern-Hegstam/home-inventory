@@ -23,11 +23,18 @@ public class StockItemService(StockItemContext stockItemContext) : IStockItemSer
     
     public async Task<List<StockItem>> GetStockItems()
     {
-        return await stockItemContext.StockItems.ToListAsync();
+        return await stockItemContext.StockItems.AsNoTracking().ToListAsync();
     }
     
     public async Task<StockItem?> FindBySku(Sku sku)
     {
-        return await stockItemContext.StockItems.FirstOrDefaultAsync(s => s.Sku == sku);
+        return await stockItemContext.StockItems.AsNoTracking().FirstOrDefaultAsync(s => s.Sku == sku);
+    }
+
+    public async Task<List<StockItem>> GetLowInventoryItems()
+    {
+        return await stockItemContext.StockItems.AsNoTracking()
+            .Where(item => item.InventoryCount < item.DesiredCount)
+            .ToListAsync();
     }
 }
