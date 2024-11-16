@@ -2,8 +2,9 @@ using HomeInventory.Model;
 
 namespace HomeInventory.Service.Request;
 
-public record AddStockItemRequest(
-    string Name,
-    Sku Sku,
-    int InventoryCount
-);
+public class AddStockItemRequest
+{
+    public required string Name { get; init; }
+    public required Sku Sku { get; init; }
+    public int InventoryCount { get; init; } = 1;
+}

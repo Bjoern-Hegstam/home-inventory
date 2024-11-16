@@ -2,6 +2,7 @@
 using HomeInventory.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HomeInventory.Database.Migrations
 {
     [DbContext(typeof(StockItemContext))]
-    partial class StockItemContextModelSnapshot : ModelSnapshot
+    [Migration("20241116113304_ChangeStockItemPrimaryKey")]
+    partial class ChangeStockItemPrimaryKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +26,7 @@ namespace HomeInventory.Database.Migrations
 
             modelBuilder.Entity("HomeInventory.Model.StockItem", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("StockItemId")
                         .HasColumnType("text");
 
                     b.Property<int>("DesiredCount")
@@ -40,9 +43,9 @@ namespace HomeInventory.Database.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("StockItemId");
 
-                    b.HasIndex("Id")
+                    b.HasIndex("StockItemId")
                         .IsUnique();
 
                     b.ToTable("StockItem", (string)null);

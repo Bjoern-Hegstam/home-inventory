@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Model.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.WebApi", "HomeInventory.WebApi\HomeInventory.WebApi.csproj", "{24500A5F-1438-44B3-88DF-A9BC3E73686D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.ApiModel", "HomeInventory.ApiModel\HomeInventory.ApiModel.csproj", "{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{24500A5F-1438-44B3-88DF-A9BC3E73686D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24500A5F-1438-44B3-88DF-A9BC3E73686D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24500A5F-1438-44B3-88DF-A9BC3E73686D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -11,4 +11,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="../HomeInventory.ApiModel/HomeInventory.ApiModel.csproj"/>
+        <ProjectReference Include="../HomeInventory.Service/HomeInventory.Service.csproj"/>
+    </ItemGroup>
+
 </Project>

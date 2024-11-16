@@ -11,7 +11,7 @@ public class StockItemService(StockItemContext stockItemContext) : IStockItemSer
     {
         var stockItem = new StockItem
         {
-            StockItemId = new StockItemId(),
+            Id = new StockItemId(),
             Name = request.Name,
             Sku = request.Sku,
             InventoryCount = request.InventoryCount
