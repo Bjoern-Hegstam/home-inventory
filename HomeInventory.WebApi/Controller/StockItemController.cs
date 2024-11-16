@@ -1,5 +1,6 @@
-using HomeInventory.ApiModel;
 using HomeInventory.ApiModel.Request;
+using HomeInventory.ApiModel.Response;
+using HomeInventory.ApiModel.Shared;
 using HomeInventory.Model;
 using HomeInventory.Service;
 using HomeInventory.Service.Request;

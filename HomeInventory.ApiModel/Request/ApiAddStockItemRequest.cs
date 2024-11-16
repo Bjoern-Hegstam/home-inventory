@@ -1,3 +1,5 @@
+using HomeInventory.ApiModel.Shared;
+
 namespace HomeInventory.ApiModel.Request;
 
 public class ApiAddStockItemRequest

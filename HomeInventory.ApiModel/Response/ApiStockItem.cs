@@ -1,4 +1,6 @@
-namespace HomeInventory.ApiModel;
+using HomeInventory.ApiModel.Shared;
+
+namespace HomeInventory.ApiModel.Response;
 
 public class ApiStockItem
 {
