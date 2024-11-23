@@ -17,7 +17,8 @@ public class StockItemService(StockItemContext stockItemContext) : IStockItemSer
             InventoryCount = request.InventoryCount
         };
         await stockItemContext.StockItems.AddAsync(stockItem);
-
+        await stockItemContext.SaveChangesAsync();
+        
         return stockItem;
     }
     

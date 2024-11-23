@@ -1,0 +1,73 @@
+using HomeInventory.Database;
+using HomeInventory.IntegrationTest.Framework.Core;
+using HomeInventory.IntegrationTest.Framework.Postresql;
+using HomeInventory.WebApi;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Xunit;
+
+namespace HomeInventory.IntegrationTest.Setup;
+
+[CollectionDefinition(nameof(IntegrationTestCollection))]
+public class IntegrationTestCollection : ICollectionFixture<HomeInventoryIntegrationTestFixture>;
+
+public class HomeInventoryIntegrationTestFixture : IntegrationTestFixture<HomeInventoryIntegrationTestEnvironment>;
+
+public class HomeInventoryIntegrationTestEnvironment(IServiceProvider testServices)
+    : IntegrationTestEnvironment(testServices)
+{
+    public override List<IExternalDependency> CreateExternalDependencies() =>
+    [
+        new TestContainerPostgreSqlDb
+        {
+            Database = "home-inventory-db",
+        }
+    ];
+
+    public override ISystemUnderTest CreateSystemUnderTest() => new HomeInventoryTestHost(TestServices);
+
+    public override Task BeforeEachAsync()
+    {
+        var context = TestServices.GetRequiredService<StockItemContext>();
+        context.StockItems.ExecuteDelete();
+        
+        return Task.CompletedTask;
+    }
+}
+
+public class HomeInventoryTestHost(IServiceProvider serviceProvider)
+    : WebApplicationFactory<Program>, ISystemUnderTest
+{
+    private HttpClient? _httpClient;
+
+    public HttpClient HttpClient => _httpClient!;
+
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureTestServices(services =>
+        {
+            var db = serviceProvider.GetRequiredService<IPostgreSqlDb>();
+            services.AddDbContext<StockItemContext>(options => options.UseNpgsql(db.ConnectionString));
+
+            ApplyDbMigrations(services);
+        });
+    }
+
+    private static void ApplyDbMigrations(IServiceCollection services)
+    {
+        ServiceProvider serviceProvider = services.BuildServiceProvider();
+        using IServiceScope scope = serviceProvider.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<StockItemContext>();
+        context.Database.Migrate();
+    }
+
+    public Task InitializeAsync()
+    {
+        _httpClient = CreateClient();
+        _httpClient.BaseAddress = new Uri("http://localhost");
+        return Task.CompletedTask;
+    }
+}
