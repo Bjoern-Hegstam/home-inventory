@@ -1,6 +1,7 @@
 using HomeInventory.Database;
 using HomeInventory.IntegrationTest.Framework.Core;
 using HomeInventory.IntegrationTest.Framework.Postresql;
+using HomeInventory.IntegrationTest.Framework.WebHost;
 using HomeInventory.WebApi;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -33,18 +34,13 @@ public class HomeInventoryIntegrationTestEnvironment(IServiceProvider testServic
     {
         var context = TestServices.GetRequiredService<StockItemContext>();
         context.StockItems.ExecuteDelete();
-        
+
         return Task.CompletedTask;
     }
 }
 
-public class HomeInventoryTestHost(IServiceProvider serviceProvider)
-    : WebApplicationFactory<Program>, ISystemUnderTest
+public class HomeInventoryTestHost(IServiceProvider serviceProvider) : WebHostSystemUnderTest<Program>
 {
-    private HttpClient? _httpClient;
-
-    public HttpClient HttpClient => _httpClient!;
-
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.ConfigureTestServices(services =>
@@ -62,12 +58,5 @@ public class HomeInventoryTestHost(IServiceProvider serviceProvider)
         using IServiceScope scope = serviceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<StockItemContext>();
         context.Database.Migrate();
-    }
-
-    public Task InitializeAsync()
-    {
-        _httpClient = CreateClient();
-        _httpClient.BaseAddress = new Uri("http://localhost");
-        return Task.CompletedTask;
     }
 }
