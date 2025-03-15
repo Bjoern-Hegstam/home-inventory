@@ -1,9 +1,8 @@
 using HomeInventory.ApiModel.Request;
 using HomeInventory.ApiModel.Response;
 using HomeInventory.ApiModel.Shared;
-using HomeInventory.Model;
-using HomeInventory.Service;
-using HomeInventory.Service.Request;
+using HomeInventory.Domain.Model;
+using HomeInventory.Domain.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeInventory.WebApi.Controller;
@@ -17,6 +16,7 @@ public class StockItemController(IStockItemService stockItemService) : Controlle
     {
         var request = new AddStockItemRequest
         {
+            Id = new StockItemId(),
             Name = apiRequest.Name,
             Sku = new Sku(apiRequest.Sku.Value),
             InventoryCount = apiRequest.InventoryCount

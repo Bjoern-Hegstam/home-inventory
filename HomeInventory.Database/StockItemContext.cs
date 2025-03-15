@@ -1,5 +1,5 @@
 using System.Reflection;
-using HomeInventory.Model;
+using HomeInventory.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeInventory.Database;

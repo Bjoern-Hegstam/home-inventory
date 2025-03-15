@@ -4,11 +4,10 @@ using HomeInventory.ApiModel.Request;
 using HomeInventory.ApiModel.Response;
 using HomeInventory.ApiModel.Shared;
 using HomeInventory.Database;
+using HomeInventory.Domain.Model;
+using HomeInventory.Domain.Service;
 using HomeInventory.IntegrationTest.Framework.Core;
 using HomeInventory.IntegrationTest.Setup;
-using HomeInventory.Model;
-using HomeInventory.Service;
-using HomeInventory.Service.Request;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
@@ -64,6 +63,7 @@ public class StockItemIntegrationTest(HomeInventoryIntegrationTestFixture fixtur
         // Arrange
         var existingStockItem = new AddStockItemRequest
         {
+            Id = new StockItemId(),
             Name = "test-stock-item",
             Sku = new Sku("test-sku"),
             InventoryCount = 1,

@@ -1,4 +1,4 @@
-using HomeInventory.Model.Common;
+using HomeInventory.Domain.Model;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HomeInventory.Database.Common;

@@ -1,4 +1,4 @@
-namespace HomeInventory.IntegrationTest.Framework.Postresql;
+namespace HomeInventory.IntegrationTest.Framework.PostreSql;
 
 public interface IPostgreSqlDb
 {

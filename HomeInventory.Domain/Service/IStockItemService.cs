@@ -1,7 +1,6 @@
-using HomeInventory.Model;
-using HomeInventory.Service.Request;
+using HomeInventory.Domain.Model;
 
-namespace HomeInventory.Service;
+namespace HomeInventory.Domain.Service;
 
 public interface IStockItemService
 {

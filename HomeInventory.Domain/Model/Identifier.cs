@@ -1,4 +1,4 @@
-namespace HomeInventory.Model.Common;
+namespace HomeInventory.Domain.Model;
 
 public abstract record Identifier<T>(Guid Id) where T : Identifier<T>
 {

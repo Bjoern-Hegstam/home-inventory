@@ -1,7 +1,7 @@
 using HomeInventory.IntegrationTest.Framework.Core;
 using Testcontainers.PostgreSql;
 
-namespace HomeInventory.IntegrationTest.Framework.Postresql;
+namespace HomeInventory.IntegrationTest.Framework.PostreSql;
 
 public class TestContainerPostgreSqlDb : TestContainerService<PostgreSqlContainer>, IPostgreSqlDb
 {

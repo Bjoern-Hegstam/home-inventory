@@ -1,5 +1,6 @@
 using HomeInventory.Database;
-using HomeInventory.Service;
+using HomeInventory.Domain.Integration;
+using HomeInventory.Domain.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeInventory.WebApi;
@@ -17,6 +18,7 @@ public partial class Program
         services.AddControllers();
 
         services.AddScoped<IStockItemService, StockItemService>();
+        services.AddScoped<IStockItemRepository, EfStockItemRepository>();
 
         services.AddDbContext<StockItemContext>(options =>
         {

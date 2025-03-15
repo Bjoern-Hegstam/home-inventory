@@ -1,10 +1,9 @@
 using HomeInventory.Database;
 using HomeInventory.IntegrationTest.Framework.Core;
-using HomeInventory.IntegrationTest.Framework.Postresql;
+using HomeInventory.IntegrationTest.Framework.PostreSql;
 using HomeInventory.IntegrationTest.Framework.WebHost;
 using HomeInventory.WebApi;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

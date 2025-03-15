@@ -6,9 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\HomeInventory.Model\HomeInventory.Model.csproj" />
-      <ProjectReference Include="..\HomeInventory.Database\HomeInventory.Database.csproj" />
-    </ItemGroup>
-
 </Project>

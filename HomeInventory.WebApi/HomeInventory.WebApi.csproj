@@ -13,7 +13,8 @@
 
     <ItemGroup>
         <ProjectReference Include="../HomeInventory.ApiModel/HomeInventory.ApiModel.csproj"/>
-        <ProjectReference Include="../HomeInventory.Service/HomeInventory.Service.csproj"/>
+        <ProjectReference Include="..\HomeInventory.Database\HomeInventory.Database.csproj"/>
+        <ProjectReference Include="..\HomeInventory.Domain\HomeInventory.Domain.csproj"/>
     </ItemGroup>
 
 </Project>
