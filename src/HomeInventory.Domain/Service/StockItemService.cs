@@ -15,7 +15,7 @@ public class StockItemService(IStockItemRepository stockItemRepository) : IStock
             InventoryCount = request.InventoryCount
         };
 
-        await stockItemRepository.CreateAsync(stockItem);
+        await stockItemRepository.Create(stockItem);
         return stockItem;
     }
     
@@ -26,11 +26,11 @@ public class StockItemService(IStockItemRepository stockItemRepository) : IStock
     
     public Task<StockItem?> FindBySku(Sku sku)
     {
-        return stockItemRepository.FirstOrDefaultAsync(s => s.Sku == sku);
+        return stockItemRepository.SingleOrDefault(sku);
     }
 
     public Task<List<StockItem>> GetLowInventoryItems()
     {
-        return stockItemRepository.GetStockItems(item => item.InventoryCount < item.DesiredCount);
+        return stockItemRepository.GetLowInventoryStockItems();
     }
 }

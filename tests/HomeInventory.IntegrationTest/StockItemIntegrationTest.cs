@@ -75,7 +75,7 @@ public class StockItemIntegrationTest(HomeInventoryIntegrationTestFixture fixtur
 
         // Assert
         apiStockItems.Should().HaveCount(1);
-        ApiStockItem apiStockItem = apiStockItems.First();
+        ApiStockItem apiStockItem = apiStockItems!.First();
         apiStockItem.Name.Should().Be("test-stock-item");
     }
 }

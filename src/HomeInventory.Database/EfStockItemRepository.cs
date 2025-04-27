@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using HomeInventory.Domain.Integration;
 using HomeInventory.Domain.Model;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +6,7 @@ namespace HomeInventory.Database;
 
 public class EfStockItemRepository(StockItemContext stockItemContext) : IStockItemRepository
 {
-    public async Task CreateAsync(StockItem stockItem)
+    public async Task Create(StockItem stockItem)
     {
         await stockItemContext.StockItems.AddAsync(stockItem);
         await stockItemContext.SaveChangesAsync();
@@ -18,15 +17,17 @@ public class EfStockItemRepository(StockItemContext stockItemContext) : IStockIt
         return stockItemContext.StockItems.AsNoTracking().ToListAsync();
     }
 
-    public Task<List<StockItem>> GetStockItems(Expression<Func<StockItem, bool>> predicate)
+    public Task<List<StockItem>> GetLowInventoryStockItems()
     {
         return stockItemContext.StockItems.AsNoTracking()
             .Where(item => item.InventoryCount < item.DesiredCount)
             .ToListAsync();
     }
 
-    public Task<StockItem?> FirstOrDefaultAsync(Expression<Func<StockItem, bool>> predicate)
+    public Task<StockItem?> SingleOrDefault(Sku sku)
     {
-        return stockItemContext.StockItems.AsNoTracking().FirstOrDefaultAsync(predicate);
+        return stockItemContext.StockItems.AsNoTracking()
+            .Where(item => item.Sku == sku)
+            .SingleOrDefaultAsync();
     }
 }
