@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../HomeInventory.WebApi/HomeInventory.WebApi.csproj"/>
+        <ProjectReference Include="../../src/HomeInventory.WebApi/HomeInventory.WebApi.csproj"/>
     </ItemGroup>
 
 </Project>

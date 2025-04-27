@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Database", "HomeInventory.Database\HomeInventory.Database.csproj", "{E360237A-42D2-40D4-816B-6E2BAF175076}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Database", "src\HomeInventory.Database\HomeInventory.Database.csproj", "{E360237A-42D2-40D4-816B-6E2BAF175076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.WebApi", "HomeInventory.WebApi\HomeInventory.WebApi.csproj", "{24500A5F-1438-44B3-88DF-A9BC3E73686D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.WebApi", "src\HomeInventory.WebApi\HomeInventory.WebApi.csproj", "{24500A5F-1438-44B3-88DF-A9BC3E73686D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.ApiModel", "HomeInventory.ApiModel\HomeInventory.ApiModel.csproj", "{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.ApiModel", "src\HomeInventory.ApiModel\HomeInventory.ApiModel.csproj", "{3BB72FB2-40CF-4E3D-A79B-FBFEFB463F21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.IntegrationTest", "HomeInventory.IntegrationTest\HomeInventory.IntegrationTest.csproj", "{09322F85-11FF-4981-9769-B2D051C563FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.IntegrationTest", "tests\HomeInventory.IntegrationTest\HomeInventory.IntegrationTest.csproj", "{09322F85-11FF-4981-9769-B2D051C563FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Domain", "HomeInventory.Domain\HomeInventory.Domain.csproj", "{A35D40B8-27E7-4A61-B580-DFB72A9181F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInventory.Domain", "src\HomeInventory.Domain\HomeInventory.Domain.csproj", "{A35D40B8-27E7-4A61-B580-DFB72A9181F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
